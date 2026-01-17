@@ -3,7 +3,22 @@ document.getElementById("contactBtn")?.addEventListener("click", () => {
     window.location.href = "mailto:armand199701@gmail.com";
 });
 
-// Live coding rain effect
+// ================= VISITOR COUNTER =================
+const counterNamespace = "thegreyone777-portfolio";
+const counterKey = "homepage";
+
+fetch(`https://api.countapi.xyz/hit/${counterNamespace}/${counterKey}`)
+    .then(response => response.json())
+    .then(data => {
+        const counter = document.getElementById("visitCount");
+        if (counter) counter.textContent = data.value;
+    })
+    .catch(() => {
+        const counter = document.getElementById("visitCount");
+        if (counter) counter.textContent = "—";
+    });
+
+// ================= LIVE CODE RAIN =================
 const canvas = document.getElementById("codeRain");
 const ctx = canvas.getContext("2d");
 
@@ -19,7 +34,7 @@ function draw() {
     ctx.fillStyle = "rgba(2,6,23,0.1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "#0fdf9f"; // neon green letters
+    ctx.fillStyle = "#0fdf9f";
     ctx.font = fontSize + "px monospace";
 
     for (let i = 0; i < drops.length; i++) {
