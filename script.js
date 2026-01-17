@@ -3,22 +3,22 @@ document.getElementById("contactBtn")?.addEventListener("click", () => {
     window.location.href = "mailto:armand199701@gmail.com";
 });
 
-// ---------------- VISITOR COUNTER ----------------
-const counterNamespace = "armand-portfolio";
-const counterKey = "visits";
+// ================= VISITOR COUNTER =================
+const counterNamespace = "thegreyone777-portfolio";
+const counterKey = "homepage";
 
 fetch(`https://api.countapi.xyz/hit/${counterNamespace}/${counterKey}`)
-    .then(res => res.json())
+    .then(response => response.json())
     .then(data => {
-        const el = document.getElementById("visitCount");
-        if (el) el.textContent = data.value;
+        const counter = document.getElementById("visitCount");
+        if (counter) counter.textContent = data.value;
     })
     .catch(() => {
-        const el = document.getElementById("visitCount");
-        if (el) el.textContent = "—";
+        const counter = document.getElementById("visitCount");
+        if (counter) counter.textContent = "—";
     });
 
-// ---------------- LIVE CODE RAIN ----------------
+// ================= LIVE CODE RAIN =================
 const canvas = document.getElementById("codeRain");
 const ctx = canvas.getContext("2d");
 
