@@ -1,59 +1,51 @@
-// Contact button
-document.getElementById("contactBtn")?.addEventListener("click", () => {
-    window.location.href = "mailto:armand199701@gmail.com";
+document.addEventListener("DOMContentLoaded", () => {
+    initVisitorCounter();
+    initCodeRain();
 });
 
-// ================= VISITOR COUNTER =================
-const counterNamespace = "thegreyone777-portfolio";
-const counterKey = "homepage";
+function initVisitorCounter() {
+    const counter = document.getElementById("visitCount");
+    if (!counter) return;
 
-fetch(`https://api.countapi.xyz/hit/${counterNamespace}/${counterKey}`)
-    .then(response => response.json())
-    .then(data => {
-        const counter = document.getElementById("visitCount");
-        if (counter) counter.textContent = data.value;
-    })
-    .catch(() => {
-        const counter = document.getElementById("visitCount");
-        if (counter) counter.textContent = "—";
-    });
-
-// ================= LIVE CODE RAIN =================
-const canvas = document.getElementById("codeRain");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789<>/{}[]();".split("");
-const fontSize = 16;
-let columns = Math.floor(canvas.width / fontSize);
-const drops = Array(columns).fill(0);
-
-function draw() {
-    ctx.fillStyle = "rgba(2,6,23,0.1)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = "#0fdf9f";
-    ctx.font = fontSize + "px monospace";
-
-    for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-            drops[i] = 0;
-        }
-        drops[i]++;
-    }
+    fetch("https://api.countapi.xyz/hit/thegreyone777-portfolio/homepage")
+        .then(res => res.json())
+        .then(data => counter.textContent = data.value)
+        .catch(() => counter.textContent = "—");
 }
 
-setInterval(draw, 35);
+function initCodeRain() {
+    const canvas = document.getElementById("codeRain");
+    if (!canvas) return;
 
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    columns = Math.floor(canvas.width / fontSize);
-    drops.length = columns;
-    drops.fill(0);
-});
+    const ctx = canvas.getContext("2d");
+    const fontSize = 16;
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/{}".split("");
+
+    let columns = 0;
+    let drops = [];
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        columns = Math.floor(canvas.width / fontSize);
+        drops = Array(columns).fill(0);
+    }
+
+    function draw() {
+        ctx.fillStyle = "rgba(2,6,23,0.1)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#0fdf9f";
+        ctx.font = `${fontSize}px monospace`;
+
+        drops.forEach((y, i) => {
+            const text = letters[Math.floor(Math.random() * letters.length)];
+            ctx.fillText(text, i * fontSize, y * fontSize);
+            drops[i] = y * fontSize > canvas.height && Math.random() > 0.975 ? 0 : y + 1;
+        });
+    }
+
+    resize();
+    setInterval(draw, 35);
+    window.addEventListener("resize", resize);
+}

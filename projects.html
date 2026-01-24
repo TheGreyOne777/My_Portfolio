@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Work | Armand Linde</title>
+    <title>Projects | Armand Linde</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project demos and walkthroughs by junior software developer Armand Linde.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <canvas id="codeRain"></canvas>
+    <canvas id="codeRain" aria-hidden="true"></canvas>
 
-    <!-- Back Button Top-Left -->
-    <a href="index.html" class="back-button">← Back to Menu</a>
+    <a href="index.html" class="back-button">← Back</a>
 
     <main class="container">
 
@@ -21,48 +21,39 @@
         </header>
 
         <section class="projects">
-            <div class="project">
+            <article class="project">
 
                 <div class="project-images">
-                    <!-- ALL PATHS LOWERCASE for GitHub Pages -->
-                    <img src="webproject/projects_ss1.jpg" alt="Project screenshot 1">
-                    <img src="webproject/projects_ss2.jpg" alt="Project screenshot 2">
-                    <img src="webproject/projects_ss3.jpg" alt="Project screenshot 3">
-                    <img src="webproject/projects_ss4.jpg" alt="Project screenshot 4">
-                    <img src="webproject/projects_ss5.jpg" alt="Project screenshot 5">
-                    <img src="webproject/projects_ss6.jpg" alt="Project screenshot 6">
-                    <img src="webproject/projects_ss7.jpg" alt="Project screenshot 7">
-                    <img src="webproject/projects_ss8.jpg" alt="Project screenshot 8">
-                    <img src="webproject/projects_ss9.jpg" alt="Project screenshot 9">
-                    <img src="webproject/projects_ss10.jpg" alt="Project screenshot 10">
-                    <img src="webproject/projects_ss11.jpg" alt="Project screenshot 11">
-                    <img src="webproject/projects_ss12.jpg" alt="Project screenshot 12">
-                    <img src="webproject/projects_ss13.jpg" alt="Project screenshot 13">
-                    <img src="webproject/projects_ss14.jpg" alt="Project screenshot 14">
-                    <img src="webproject/projects_ss15.jpg" alt="Project screenshot 15">
-                    <img src="webproject/projects_ss16.jpg" alt="Project screenshot 16">
-                    <img src="webproject/projects_ss17.jpg" alt="Project screenshot 17">
-                    <img src="webproject/projects_ss18.jpg" alt="Project screenshot 18">
-                    <img src="webproject/projects_ss19.jpg" alt="Project screenshot 19">
-                    <img src="webproject/projects_ss20.jpg" alt="Project screenshot 20">
-                    <img src="webproject/projects_ss21.jpg" alt="Project screenshot 21">
+                    <!-- Lazy loading for performance -->
+                    <img src="webproject/projects_ss1.jpg" alt="Portfolio web project screenshot 1" loading="lazy">
+                    <img src="webproject/projects_ss2.jpg" alt="Portfolio web project screenshot 2" loading="lazy">
+                    <img src="webproject/projects_ss3.jpg" alt="Portfolio web project screenshot 3" loading="lazy">
+                    <img src="webproject/projects_ss4.jpg" alt="Portfolio web project screenshot 4" loading="lazy">
+                    <img src="webproject/projects_ss5.jpg" alt="Portfolio web project screenshot 5" loading="lazy">
+                    <img src="webproject/projects_ss6.jpg" alt="Portfolio web project screenshot 6" loading="lazy">
+                    <img src="webproject/projects_ss7.jpg" alt="Portfolio web project screenshot 7" loading="lazy">
+                    <img src="webproject/projects_ss8.jpg" alt="Portfolio web project screenshot 8" loading="lazy">
+                    <img src="webproject/projects_ss9.jpg" alt="Portfolio web project screenshot 9" loading="lazy">
+                    <img src="webproject/projects_ss10.jpg" alt="Portfolio web project screenshot 10" loading="lazy">
                 </div>
 
-                <h2>Web Project</h2>
+                <h2>Web Development Project</h2>
                 <p>
-                    A personal web project showcasing HTML, CSS, and JavaScript fundamentals.
+                    A personal portfolio project demonstrating HTML, CSS, and JavaScript fundamentals,
+                    responsive design, and clean UI structure.
                 </p>
 
-            </div>
+            </article>
         </section>
 
         <footer class="actions">
             <a href="index.html">Back</a>
-            <a href="https://github.com/TheGreyOne777/My_Portfolio" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/armand-linde/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/TheGreyOne777/My_Portfolio" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/armand-linde/" target="_blank" rel="noopener">LinkedIn</a>
         </footer>
 
     </main>
 
+    <script src="script.js" defer></script>
 </body>
 </html>

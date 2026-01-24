@@ -5,23 +5,23 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-html,
-body {
+html, body {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     overflow-x: hidden;
     background: linear-gradient(120deg, #020617, #0d0f1a);
     color: #e5e7eb;
-    scroll-behavior: smooth; /* Smooth scroll for nav links */
+    scroll-behavior: smooth;
 }
 
-/* FULLSCREEN PURPLE CODE RAIN */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Canvas background */
 #codeRain {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     z-index: -2;
     display: block;
     background: transparent;
@@ -40,7 +40,7 @@ body::before {
     z-index: -1;
 }
 
-/* NAVBAR */
+/* Navbar */
 .navbar {
     position: sticky;
     top: 0;
@@ -56,15 +56,14 @@ body::before {
 .nav-container {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .nav-logo {
-    font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
     color: #ff00ff;
     text-decoration: none;
 }
@@ -75,7 +74,7 @@ body::before {
     gap: 20px;
 }
 
-.nav-menu li a {
+.nav-menu a {
     color: #d0b3ff;
     text-decoration: none;
     font-weight: 500;
@@ -84,15 +83,15 @@ body::before {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-.nav-menu li a:hover {
+.nav-menu a:hover {
     background: #7d1ecc;
     color: #fff;
 }
 
-/* Container */
+/* Main container */
 .container {
     min-height: 100vh;
-    width: 100%;
+    padding: 40px 60px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -104,7 +103,7 @@ body::before {
     border-radius: 14px;
 }
 
-/* Header */
+/* Headers */
 header {
     text-align: center;
 }
@@ -116,6 +115,7 @@ h2 {
 
 h1 {
     font-size: 38px;
+    text-shadow: 0 0 10px rgba(200, 50, 255, 0.6);
 }
 
 h2 {
@@ -233,7 +233,47 @@ h2 {
     margin-bottom: 12px;
 }
 
-/* Back button top-left */
+/* Projects */
+.project-images {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.project-images img {
+    width: 90%;
+    max-width: 900px;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.project-images img:hover {
+    transform: scale(1.03);
+}
+
+/* Footer actions */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.actions a {
+    background: #9b30ff;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.actions a:hover {
+    background: #7d1ecc;
+}
+
+/* Back button */
 .back-button {
     position: fixed;
     top: 20px;
@@ -254,7 +294,7 @@ h2 {
     transform: translateY(-2px);
 }
 
-/* Mobile */
+/* Responsive */
 @media (max-width: 768px) {
     .container {
         padding: 30px 20px;
